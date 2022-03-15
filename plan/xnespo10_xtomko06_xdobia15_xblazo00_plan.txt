@@ -1,8 +1,39 @@
-Tento soubor bude obsahovat:
+Project plan - Grindset
 
--- stanovené termíny,
--- přidělení úkolů na projektu jednotlivým řešitelům,
--- zvolené komunikační kanály pro komunikaci v týmu a stanovená pravidla pro komunikaci (jsou-li nějaká),
--- zvolený systém pro správu verzí a hosting + informaci, jak do repozitáře mohou nahlédnout vyučující/cvičící (viz níže).
 
-Alternativně lze odevzdat archiv xlogin01_xlogin02_xlogin03_xlogin04_plan.zip, který bude obsahovat libovolný počet souborů xlogin01_xlogin02_xlogin03_xlogin04_plan* ("*" zastupuje libovolný počet libovolných znaků, tedy např. ".mpp" či "01.jpg"), přičemž plán zde může být vytvořený v MS Projectu či jiném programu (není-li daný program ve škole dostupný, je nutno odevzdat i exportovanou verzi v PDF či jpg).
+Deadlines:
+
+15.3. - Repository creation
+16.3. - Individual research
+17.3. - Upload project plan to WIS
+19.3. - Create issues in GitHub
+20.3. - Create mat. library tests
+25.3. - Implement mat. library based on tests
+1.4. - Create GUI
+4.4. - Link library with GUI
+8.4. - Bug Fixes and Optimalization
+15.4. - Finalization
+29.4. - Upload final product
+21.5. - Upload individual problems
+
+
+Work distribution:
+
+Andrej Nešpor (xnespo10)
+    organization, project plan, basic GUI
+
+Matej Tomko (xtomko06)
+    repository management, mat. library
+
+Matúš Dobiáš (xdobia15)
+    instalation, makefile
+
+Richard Blažo (xblazo00)
+    documentation, tests
+
+
+Communication platforms:
+Discord
+
+Version control:
+GitHub - https://github.com/noname7571/IVS-Project2
