@@ -7,10 +7,10 @@ Autori
 ------
 
 Grindset
-- xnespo10 Andrej Nešpor
-- xtomko06 Matej Tomko
-- xdobia15 Matúš Dobiáš 
-- xblazo00 Richard Blažo 
+- Andrej Nešpor (xnespo10)
+- Matej Tomko (xtomko06)
+- Matúš Dobiáš (xdobia15)
+- Richard Blažo (xblazo00)
 
 Licence
 -------
