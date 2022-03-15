@@ -2,16 +2,15 @@ Prostredi
 ---------
 
 Ubuntu 64bit
-Windows 64bit
 
 Autori
 ------
 
-Nazev tymu
-- xlogin01 jmeno prijmeni 
-- xlogin02 jmeno prijmeni 
-- xlogin03 jmeno prijmeni 
-- xlogin04 jmeno prijmeni 
+Grindset
+- xnespo10 Andrej Nešpor
+- xtomko06 Matej Tomko
+- xdobia15 Matúš Dobiáš 
+- xblazo00 Richard Blažo 
 
 Licence
 -------
