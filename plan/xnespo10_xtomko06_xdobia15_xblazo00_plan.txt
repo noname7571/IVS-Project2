@@ -20,7 +20,7 @@ Deadlines:
 Work distribution:
 
 Andrej Nešpor (xnespo10)
-    organization, project plan, basic GUI
+    organization, project plan, GUI
 
 Matej Tomko (xtomko06)
     repository management, mat. library
