@@ -28,5 +28,8 @@
 *.out
 *.app
 
+# VScode files
+.vscode
+
 # Test files (generated automatically)
 src/build
