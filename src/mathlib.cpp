@@ -1,6 +1,7 @@
 #include "mathlib.h"
 #include <math.h>
 #include <stdexcept>
+#include <limits.h>
 
 
 long double mathlib::add(long double a, long double b){
@@ -38,6 +39,8 @@ long double mathlib::power(long double num, long long exponent){
         throw std::invalid_argument("Exponent is not an integer!");
     } else if (exponent < 0){
         throw std::invalid_argument("Exponent is less than zero!");
+    } else if (exponent == 0 && num == 0){
+        throw std::invalid_argument("0^0 is not defined!");
     } else if (exponent == 0){
         return 1;
     }
@@ -48,15 +51,18 @@ long double mathlib::power(long double num, long long exponent){
 long double mathlib::getRoot(long double num, long long exponent){
     if (exponent != (long long int)exponent){
         throw std::invalid_argument("Exponent is not an integer!");
+    } else if (exponent == 0){
+        throw std::invalid_argument("Illegal operation!");
     }
 
     if (num < 0){
         if (exponent % 2 == 0){
             throw std::invalid_argument("Exponent is even while number is less than zero!");
         }
-        return pow(num, (long double)(1 / exponent));
+
+        return -pow(-num, 1 / (long double)exponent);
     }
-    return pow(num, (long double)(1 / exponent));
+    return pow(num, 1 / (long double)exponent);
 }
 
 long double mathlib::abs(long double num){
