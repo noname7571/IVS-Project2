@@ -334,15 +334,15 @@ TEST(powTests, Overflow)
  * Tests for mathlib::getRoot function
  */
 
-TEST(getRootTests, Trivial)
-{
-    EXPECT_EQ(mathlib::getRoot(0,1), 0);
-    EXPECT_EQ(mathlib::getRoot(1,1), 1);
-    EXPECT_EQ(mathlib::getRoot(1,647), 1);
-    EXPECT_EQ(mathlib::getRoot(647,1), 647);
-    // 0^0 is undefined
-    EXPECT_ANY_THROW(mathlib::getRoot(0,0));
-}
+// TEST(getRootTests, Trivial)
+// {
+//     EXPECT_EQ(mathlib::getRoot(0,1), 0);
+//     EXPECT_EQ(mathlib::getRoot(1,1), 1);
+//     EXPECT_EQ(mathlib::getRoot(1,647), 1);
+//     EXPECT_EQ(mathlib::getRoot(647,1), 647);
+//     // 0^0 is undefined
+//     EXPECT_ANY_THROW(mathlib::getRoot(0,0));
+// }
 
 TEST(getRootTests, Positive)
 {
