@@ -2,7 +2,7 @@
 #include "./ui_calculator.h"
 #include <QRegularExpression>
 
-//https://doc.qt.io/qt-5/qtwidgets-widgets-calculator-example.html
+// https://doc.qt.io/qt-5/qtwidgets-widgets-calculator-example.html
 
 bool finito = false;
 bool special = false;
@@ -16,135 +16,114 @@ QString prevOp = "";
 QString OpPrevMulDiv = "";
 //
 
-//constructor
+// constructor
 Calculator::Calculator(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::Calculator)
+    : QMainWindow(parent), ui(new Ui::Calculator)
 {
     ui->setupUi(this);
-    ui->Display->setReadOnly(true);//display as read-only
-    ui->Display->setText(QString::number(0));//def val == 0
+    ui->Display->setReadOnly(true);           // display as read-only
+    ui->Display->setText(QString::number(0)); // def val == 0
 
-    QPushButton *numButtons[10];
-    for (int i = 0; i < 10; i++){
-        QString butName = "Button" + QString::number(i);
-        numButtons[i] = Calculator::findChild<QPushButton *>(butName);
-        connect(numButtons[i], SIGNAL(released()), this,
-                SLOT(numPress()));
-    }
-    connect(ui->Point, SIGNAL(released()), this,
-            SLOT(pointPress()));
-    connect(ui->Negation, SIGNAL(released()), this,
-            SLOT(signPress()));
-
-    connect(ui->Backspace, SIGNAL(released()), this,
-            SLOT(backspacePress()));
-    connect(ui->Clear, SIGNAL(released()), this,
-            SLOT(clear()));
-    connect(ui->ClearAll, SIGNAL(released()), this,
-            SLOT(clearAll()));
-
-    connect(ui->Multiply, SIGNAL(released()), this,
-            SLOT(mathOpPress()));
-    connect(ui->Divide, SIGNAL(released()), this,
-            SLOT(mathOpPress()));
-    connect(ui->Add, SIGNAL(released()), this,
-            SLOT(mathOpPress()));
-    connect(ui->Subtract, SIGNAL(released()), this,
-            SLOT(mathOpPress()));
-
-    connect(ui->Absolute, SIGNAL(released()), this,
-            SLOT(unaryPress()));
-    connect(ui->Factorial, SIGNAL(released()), this,
-            SLOT(unaryPress()));
-
-    connect(ui->Root, SIGNAL(released()), this,
-            SLOT(specialPress()));
-    connect(ui->Power, SIGNAL(released()), this,
-            SLOT(specialPress()));
-
-    connect(ui->Equals, SIGNAL(released()), this,
-            SLOT(equalPress()));
 }
 
-//destructor
+// destructor
 Calculator::~Calculator()
 {
     delete ui;
 }
 
-void Calculator::numPress(){
+void Calculator::numPress()
+{
     QPushButton *button = (QPushButton *)sender();
     int numVal = button->text().toInt();
 
     if (ui->Display->text() == "0" && numVal == 0)
         return;
-    if (isAbs || isFact){
+    if (isAbs || isFact)
+    {
         return;
     }
 
-    if (waitingForOperand) {
+    if (waitingForOperand)
+    {
         ui->Display->clear();
         waitingForOperand = false;
     }
-    if (finito){
+    if (finito)
+    {
         ui->Fulldisplay->clear();
         finito = false;
     }
     ui->Display->setText(ui->Display->text() + QString::number(numVal));
 }
 
-
-void Calculator::unaryPress(){
+void Calculator::unaryPress()
+{
     QPushButton *button = (QPushButton *)sender();
     QString op = button->text();
 
-    if (waitingForOperand || isAbs || isFact){
+    if (waitingForOperand || isAbs || isFact)
+    {
         return;
     }
 
-    if (op == "abs"){
+    if (op == "abs")
+    {
         isAbs = true;
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" abs("+ui->Display->text()+")");
-    } else {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " abs(" + ui->Display->text() + ")");
+    }
+    else
+    {
         isFact = true;
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" fact("+ui->Display->text()+")");
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " fact(" + ui->Display->text() + ")");
     }
 }
 
-void Calculator::specialPress(){
+void Calculator::specialPress()
+{
     QPushButton *button = (QPushButton *)sender();
     QString op = button->text();
 
-    if (waitingForOperand || isAbs || isFact){
+    if (waitingForOperand || isAbs || isFact)
+    {
         return;
     }
 
-    if (op == "power"){
+    if (op == "power")
+    {
         special = true;
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" "+ui->Display->text()+" ^");
-    } else {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " ^");
+    }
+    else
+    {
         special = true;
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" "+ui->Display->text()+" ~");
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " ~");
     }
 
     waitingForOperand = true;
 }
 
-void Calculator::mathOpPress(){
+void Calculator::mathOpPress()
+{
     QPushButton *button = (QPushButton *)sender();
     QString op = button->text();
     double number = ui->Display->text().toDouble();
 
-    if (waitingForOperand) return;
+    if (waitingForOperand)
+        return;
 
-    if(isAbs || isFact){
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" "+op);
-        if (isAbs && number < 0) number *= -1;
-    } else {
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" "+ui->Display->text()+" "+op);
-        if (prevOp == ""){
-            //sumSoFar = ui->Display->text().toDouble();
+    if (isAbs || isFact)
+    {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + op);
+        if (isAbs && number < 0)
+            number *= -1;
+    }
+    else
+    {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " " + op);
+        if (prevOp == "")
+        {
+            // sumSoFar = ui->Display->text().toDouble();
         }
     }
     ui->Display->setText(QString::number(sumSoFar));
@@ -155,24 +134,31 @@ void Calculator::mathOpPress(){
     isFact = false;
 }
 
-void Calculator::equalPress(){
+void Calculator::equalPress()
+{
     double number = ui->Display->text().toDouble();
-    if (waitingForOperand)return;
+    if (waitingForOperand)
+        return;
 
-    if (prevOp == ""){
-        //sumSoFar = ui->Display->text().toDouble();
+    if (prevOp == "")
+    {
+        // sumSoFar = ui->Display->text().toDouble();
     }
 
-    if (isAbs || isFact){
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" =");
-        if (isAbs && number < 0) number *= -1;
-    } else{
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" "+ui->Display->text()+" =");
+    if (isAbs || isFact)
+    {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " =");
+        if (isAbs && number < 0)
+            number *= -1;
+    }
+    else
+    {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " =");
     }
 
     ui->Display->setText(QString::number(sumSoFar));
 
-    //reset
+    // reset
     sumSoFar = 0.0;
     prev = 0.0;
     OpPrevMulDiv = "";
@@ -189,20 +175,23 @@ void Calculator::pointPress()
     if (!ui->Display->text().contains('.'))
         ui->Display->setText(ui->Display->text() + tr("."));
     waitingForOperand = false;
-}//good
+} // good
 
 void Calculator::signPress()
 {
     QString text = ui->Display->text();
     double value = text.toDouble();
 
-    if (value > 0.0) {
+    if (value > 0.0)
+    {
         text.prepend(tr("-"));
-    } else if (value < 0.0) {
+    }
+    else if (value < 0.0)
+    {
         text.remove(0, 1);
     }
     ui->Display->setText(text);
-}//good
+} // good
 
 void Calculator::backspacePress()
 {
@@ -211,18 +200,19 @@ void Calculator::backspacePress()
 
     QString text = ui->Display->text();
     text.chop(1);
-    if (text.isEmpty()) {
+    if (text.isEmpty())
+    {
         text = "0";
         waitingForOperand = true;
     }
     ui->Display->setText(text);
-}//good
+} // good
 
 void Calculator::clear()
 {
     ui->Display->setText("0");
     waitingForOperand = true;
-}//good
+} // good
 
 void Calculator::clearAll()
 {
@@ -235,4 +225,4 @@ void Calculator::clearAll()
     isFact = false;
     prevOp = "";
     OpPrevMulDiv = "";
-}//good
+} // good
