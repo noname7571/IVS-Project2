@@ -1,0 +1,5 @@
+C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
+C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/CMakeFiles/ivs_calculator.dir
+C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
+C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/CMakeFiles/ivs_calculator_autogen_timestamp_deps.dir
+C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/CMakeFiles/ivs_calculator_autogen.dir

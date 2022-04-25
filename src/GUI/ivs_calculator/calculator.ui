@@ -1,0 +1,1154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Calculator</class>
+ <widget class="QMainWindow" name="Calculator">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>406</width>
+    <height>527</height>
+   </rect>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16777215</width>
+    <height>16777215</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Calculator - grindset</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow{
+	background-color: grey;
+}</string>
+  </property>
+  <property name="animated">
+   <bool>false</bool>
+  </property>
+  <property name="dockOptions">
+   <set>QMainWindow::AllowTabbedDocks</set>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QGridLayout" name="gridLayout" columnstretch="0,0,0,0,0">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <property name="spacing">
+     <number>1</number>
+    </property>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="ClearAll">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>CE</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QPushButton" name="Button7">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>7</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QPushButton" name="Absolute">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}</string>
+      </property>
+      <property name="text">
+       <string>abs</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QPushButton" name="Button4">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QPushButton" name="Point">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>,</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QPushButton" name="Button0">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="3">
+     <widget class="QPushButton" name="Add">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>+</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="4">
+     <widget class="QPushButton" name="Power">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>power</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="4">
+     <widget class="QPushButton" name="Root">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>root</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QPushButton" name="Button6">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>6</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="2">
+     <widget class="QPushButton" name="Button3">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3" colspan="2">
+     <widget class="QPushButton" name="Equals">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #25978e;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #1a6b65;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>=</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QPushButton" name="Button5">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="3">
+     <widget class="QPushButton" name="Multiply">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>*</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="0">
+     <widget class="QPushButton" name="Negation">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>+/-</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="4">
+     <widget class="QPushButton" name="Factorial">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>fact</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0">
+     <widget class="QPushButton" name="Button1">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QPushButton" name="Clear">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>C</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QPushButton" name="Backspace">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>11</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>backspace</string>
+      </property>
+      <property name="iconSize">
+       <size>
+        <width>30</width>
+        <height>30</height>
+       </size>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="3">
+     <widget class="QPushButton" name="Divide">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>/</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="3">
+     <widget class="QPushButton" name="Subtract">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #c2eeeb;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #93c7c3;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>-</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QPushButton" name="Button2">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="Button8">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>8</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QPushButton" name="Button9">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>15</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QPushButton{
+	background-color: #efefef;
+	color:  black;
+	border: none;
+}
+
+QPushButton:pressed{
+	background-color: #9e9e9e;
+	border: none;
+}
+</string>
+      </property>
+      <property name="text">
+       <string>9</string>
+      </property>
+      <property name="autoDefault">
+       <bool>false</bool>
+      </property>
+      <property name="default">
+       <bool>false</bool>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="5">
+     <widget class="QWidget" name="widget" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>125</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QWidget{
+	background-color: white;
+border: none;
+}</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <widget class="QLineEdit" name="Fulldisplay">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>24</pointsize>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{
+	color: grey;
+    border: none;
+}</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLineEdit" name="Display">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>32</pointsize>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="autoFillBackground">
+          <bool>false</bool>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QLineEdit{
+	color: black;
+    border: none;
+}</string>
+         </property>
+         <property name="text">
+          <string>0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
+         </property>
+         <property name="readOnly">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

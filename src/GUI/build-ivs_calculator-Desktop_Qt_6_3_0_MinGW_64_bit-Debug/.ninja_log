@@ -1,0 +1,89 @@
+# ninja log v5
+7	325	6725991376709644	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+7	325	6725991376709644	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+7	325	6725991376709644	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+7	325	6725991376709644	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+1315	4242	6725984715828001	CMakeFiles/ivs_calculator.dir/ivs_calculator_autogen/mocs_compilation.cpp.obj	2b6e841cfe2915ea
+343	2776	6725991401218605	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+1318	4248	6725984715878019	CMakeFiles/ivs_calculator.dir/main.cpp.obj	397f987f6faebf5c
+2777	3041	6725991403826639	ivs_calculator.exe	8d17e85ff14dd255
+7	343	6725992347990358	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+7	343	6725992347990358	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+7	343	6725992347990358	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+7	343	6725992347990358	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+361	2982	6725992374383330	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+2983	3259	6725992377108426	ivs_calculator.exe	8d17e85ff14dd255
+7	347	6725993300522570	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+7	347	6725993300522570	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+7	347	6725993300522570	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+7	347	6725993300522570	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+363	3147	6725993328511947	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+3147	3419	6725993331177408	ivs_calculator.exe	8d17e85ff14dd255
+8	1076	6725995754523892	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	1076	6725995754523892	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+8	1076	6725995754523892	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	1076	6725995754523892	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+1077	3570	6725995781793446	CMakeFiles/ivs_calculator.dir/ivs_calculator_autogen/mocs_compilation.cpp.obj	2b6e841cfe2915ea
+1083	3581	6725995781903402	CMakeFiles/ivs_calculator.dir/main.cpp.obj	397f987f6faebf5c
+1080	3993	6725995786025860	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+3993	4278	6725995788837331	ivs_calculator.exe	8d17e85ff14dd255
+8	342	6725996211302099	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	342	6725996211302099	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+8	342	6725996211302099	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	342	6725996211302099	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+361	2924	6725996237112864	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+2924	3187	6725996239709681	ivs_calculator.exe	8d17e85ff14dd255
+8	365	6725996847576781	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	365	6725996847576781	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+8	365	6725996847576781	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	365	6725996847576781	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+382	2980	6725996873718394	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+2981	3252	6725996876392590	ivs_calculator.exe	8d17e85ff14dd255
+8	343	6725997554623131	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	343	6725997554623131	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+8	343	6725997554623131	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	343	6725997554623131	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+360	3138	6725997582574929	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+3139	3399	6725997585132537	ivs_calculator.exe	8d17e85ff14dd255
+9	357	6725998011118477	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+9	357	6725998011118477	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+9	357	6725998011118477	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+9	357	6725998011118477	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+374	3096	6725998038502104	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+3097	3363	6725998041120651	ivs_calculator.exe	8d17e85ff14dd255
+8	412	6725998620220583	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	412	6725998620220583	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+8	412	6725998620220583	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	412	6725998620220583	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+432	3088	6725998646977284	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+3089	3365	6725998649682243	ivs_calculator.exe	8d17e85ff14dd255
+8	385	6726007423510116	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	385	6726007423510116	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+8	385	6726007423510116	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	385	6726007423510116	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+401	2779	6726007447457041	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+2780	3038	6726007449988166	ivs_calculator.exe	8d17e85ff14dd255
+10	346	6726007776080020	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+10	346	6726007776080020	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+10	346	6726007776080020	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+10	346	6726007776080020	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+363	3049	6726007803101184	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+3050	3318	6726007805745928	ivs_calculator.exe	8d17e85ff14dd255
+8	396	6726008131689018	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	396	6726008131689018	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+8	396	6726008131689018	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	396	6726008131689018	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+417	2941	6726008157125129	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+2941	3199	6726008159668299	ivs_calculator.exe	8d17e85ff14dd255
+8	368	6726011646796658	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	368	6726011646796658	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+8	368	6726011646796658	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+8	368	6726011646796658	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+389	3092	6726011674027511	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+3092	3379	6726011676857352	ivs_calculator.exe	8d17e85ff14dd255
+7	347	6726017268307307	ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+7	347	6726017268307307	ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+7	347	6726017268307307	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/timestamp	f4d4d525dc4aad69
+7	347	6726017268307307	C:/Users/gzvvy/Documents/MEGA/FIT/2. sem/IVS/project_2/GUI/build-ivs_calculator-Desktop_Qt_6_3_0_MinGW_64_bit-Debug/ivs_calculator_autogen/mocs_compilation.cpp	f4d4d525dc4aad69
+365	2768	6726017292497344	CMakeFiles/ivs_calculator.dir/calculator.cpp.obj	cbfa19676373ec86
+2769	3034	6726017295117298	ivs_calculator.exe	8d17e85ff14dd255
