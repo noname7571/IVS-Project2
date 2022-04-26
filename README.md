@@ -15,4 +15,5 @@ Grindset
 Licence
 -------
 
-Tento program je poskytovan... asi
+Tento program je poskytovan... asi... onedlho :copium:
+
