@@ -88,20 +88,30 @@ void Calculator::specialPress()
     QString op = button->text();
     double number = ui->Display->text().toDouble();
 
-    if (waitingForOperand || isAbs || isFact)
+    if (waitingForOperand)
     {
         return;
     }
 
-    if (op == "power")
-    {
+    if (op == "power"){
         power = true;
-        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " ^");
-    }
-    else
-    {
+        op = "^";
+    } else {
         root = true;
-        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " ~");
+        op = "~";
+    }
+
+    if (isAbs || isFact){
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + op);
+        if (isAbs){
+            isAbs = false;
+            number = mathlib::abs(number);
+        } else{
+            isFact = false;
+            number = mathlib::factorial(number);
+        }
+    } else {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " " +op);
     }
 
     spec = number;
