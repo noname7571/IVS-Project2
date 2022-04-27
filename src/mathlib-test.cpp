@@ -56,7 +56,7 @@ TEST(AddTests, floatingPoint)
 TEST(AddTests, Overflow)
 {
     EXPECT_ANY_THROW(mathlib::add(LDBL_MAX, 1));
-    EXPECT_ANY_THROW(mathlib::add(LDBL_MIN, -1));
+    EXPECT_ANY_THROW(mathlib::add(-LDBL_MAX, -1));
 }
 
 /*
@@ -112,7 +112,7 @@ TEST(SubTests, floatingPoint)
 TEST(SubTests, Overflow)
 {
     EXPECT_ANY_THROW(mathlib::sub(LDBL_MAX, -1));
-    EXPECT_ANY_THROW(mathlib::sub(LDBL_MIN, 1));
+    EXPECT_ANY_THROW(mathlib::sub(-LDBL_MAX, 1));
 }
 
 /*
@@ -191,9 +191,8 @@ TEST(MulTests, floatingPoint)
 
 TEST(MulTests, Overflow)
 {
-    EXPECT_ANY_THROW(mathlib::div(LDBL_MIN, -1));
     EXPECT_ANY_THROW(mathlib::mul(LDBL_MAX, 1.01));
-    EXPECT_ANY_THROW(mathlib::mul(LDBL_MIN, 1.01));
+    EXPECT_ANY_THROW(mathlib::mul(-LDBL_MAX, 1.01));
 }
 
 /*
@@ -251,9 +250,8 @@ TEST(DivTests, floatingPoint)
 
 TEST(DivTests, Overflow)
 {
-    EXPECT_ANY_THROW(mathlib::div(LDBL_MIN, -1));
     EXPECT_ANY_THROW(mathlib::div(LDBL_MAX, 0.5));
-    EXPECT_ANY_THROW(mathlib::div(LDBL_MIN, 0.5));
+    EXPECT_ANY_THROW(mathlib::div(-LDBL_MAX, 0.5));
 }
 
 /*
@@ -327,7 +325,7 @@ TEST(powTests, floatingPoint)
 TEST(powTests, Overflow)
 {
     EXPECT_ANY_THROW(mathlib::power(LDBL_MAX,2));
-    EXPECT_ANY_THROW(mathlib::power(LDBL_MIN,3));
+    EXPECT_ANY_THROW(mathlib::power(-LDBL_MAX,3));
 }
 
 /*
