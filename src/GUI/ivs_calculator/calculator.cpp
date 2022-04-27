@@ -2,6 +2,8 @@
 #include "./ui_calculator.h"
 #include <QRegularExpression>
 
+#include "mathlib.h"
+
 // https://doc.qt.io/qt-5/qtwidgets-widgets-calculator-example.html
 
 bool finito = false;
