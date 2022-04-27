@@ -7,14 +7,15 @@
 // https://doc.qt.io/qt-5/qtwidgets-widgets-calculator-example.html
 
 bool finito = false;
-bool special = false;
+bool power = false;
+bool root = false;
 bool expectMulDiv = false;
 bool isAbs = false;
 bool isFact = false;
 bool waitingForOperand = true;
 double sumSoFar = 0.0;
 double factorSoFar = 0.0;
-double prev = 0.0;
+double spec = 0.0;
 QString prevOp = "";
 QString OpPrevMulDiv = "";
 //
@@ -26,10 +27,6 @@ Calculator::Calculator(QWidget *parent)
     ui->setupUi(this);
     ui->Display->setReadOnly(true);           // display as read-only
     ui->Display->setText(QString::number(0)); // def val == 0    
-
-
-
-
 }
 
 // destructor
@@ -98,15 +95,16 @@ void Calculator::specialPress()
 
     if (op == "power")
     {
-        special = true;
+        power = true;
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " ^");
     }
     else
     {
-        special = true;
+        root = true;
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " ~");
     }
 
+    spec = number;
     waitingForOperand = true;
 }
 
@@ -133,11 +131,21 @@ void Calculator::mathOpPress()
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " " + op);
     }
 
+    if(power || root){
+        if(power){
+            number = mathlib::power(spec, number);
+            power = false;
+        } else {
+            number = mathlib::getRoot(spec, number);
+            root = false;
+        }
+    }
+
     if ((op == "*" || op == "/") && (prevOp == "+" || prevOp == "-")){
         factorSoFar = number;
         OpPrevMulDiv = prevOp;
         expectMulDiv = true;
-    } else{
+    } else {
         if(expectMulDiv){
             if (prevOp == "*"){
                 factorSoFar = mathlib::mul(factorSoFar, number);
@@ -161,7 +169,6 @@ void Calculator::mathOpPress()
 
     ui->Display->setText(QString::number(sumSoFar));
     prevOp = op;
-    prev = number;
     waitingForOperand = true;
     isAbs = false;
     isFact = false;
@@ -187,6 +194,16 @@ void Calculator::equalPress()
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " =");
     }
 
+    if(power || root){
+        if(power){
+            number = mathlib::power(spec, number);
+            power = false;
+        } else {
+            number = mathlib::getRoot(spec, number);
+            root = false;
+        }
+    }
+
     if(expectMulDiv){
         if (prevOp == "*"){
             factorSoFar = mathlib::mul(factorSoFar, number);
@@ -210,12 +227,14 @@ void Calculator::equalPress()
     // reset
     sumSoFar = 0.0;
     factorSoFar = 0.0;
-    prev = 0.0;
+    spec = 0;
     OpPrevMulDiv = "";
     prevOp = "";
     waitingForOperand = true;
     isAbs = false;
     isFact = false;
+    power = false;
+    root = false;
     finito = true;
 }
 
@@ -271,10 +290,12 @@ void Calculator::clearAll()
     ui->Fulldisplay->clear();
     sumSoFar = 0.0;
     factorSoFar = 0.0;
-    prev = 0.0;
     waitingForOperand = true;
+    expectMulDiv = false;
     isAbs = false;
     isFact = false;
+    power = false;
+    root = false;
     prevOp = "";
     OpPrevMulDiv = "";
 } // good
