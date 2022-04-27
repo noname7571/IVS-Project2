@@ -29,6 +29,8 @@ private slots:
     void clear();
     void clearAll();
 
+    bool calc(double a, QString Op);
+
 private:
     Ui::Calculator *ui;
 };

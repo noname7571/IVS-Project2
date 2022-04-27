@@ -13,6 +13,7 @@ bool isAbs = false;
 bool isFact = false;
 bool waitingForOperand = true;
 double sumSoFar = 0.0;
+double factorSoFar = 0.0;
 double prev = 0.0;
 QString prevOp = "";
 QString OpPrevMulDiv = "";
@@ -24,7 +25,10 @@ Calculator::Calculator(QWidget *parent)
 {
     ui->setupUi(this);
     ui->Display->setReadOnly(true);           // display as read-only
-    ui->Display->setText(QString::number(0)); // def val == 0
+    ui->Display->setText(QString::number(0)); // def val == 0    
+
+
+
 
 }
 
@@ -85,6 +89,7 @@ void Calculator::specialPress()
 {
     QPushButton *button = (QPushButton *)sender();
     QString op = button->text();
+    double number = ui->Display->text().toDouble();
 
     if (waitingForOperand || isAbs || isFact)
     {
@@ -117,20 +122,46 @@ void Calculator::mathOpPress()
     if (isAbs || isFact)
     {
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + op);
-        if (isAbs && number < 0)
-            number *= -1;
+        if (isAbs){
+            number = mathlib::abs(number);
+        } else {
+            number = mathlib::factorial(number);
+        }
     }
     else
     {
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " " + op);
-        if (prevOp == "")
-        {
-            // sumSoFar = ui->Display->text().toDouble();
+    }
+
+    if ((op == "*" || op == "/") && (prevOp == "+" || prevOp == "-")){
+        factorSoFar = number;
+        OpPrevMulDiv = prevOp;
+        expectMulDiv = true;
+    } else{
+        if(expectMulDiv){
+            if (prevOp == "*"){
+                factorSoFar = mathlib::mul(factorSoFar, number);
+            } else if (prevOp == "/"){
+                factorSoFar = mathlib::div(factorSoFar, number);
+            }
+            if(op == "+" || op == "-"){
+                calc(factorSoFar, OpPrevMulDiv);
+                expectMulDiv = false;
+            }
+        }
+        else {
+            calc(number, prevOp);
         }
     }
+
+    if (prevOp.isEmpty())
+    {
+        sumSoFar = number;
+    }
+
     ui->Display->setText(QString::number(sumSoFar));
     prevOp = op;
-
+    prev = number;
     waitingForOperand = true;
     isAbs = false;
     isFact = false;
@@ -142,31 +173,49 @@ void Calculator::equalPress()
     if (waitingForOperand)
         return;
 
-    if (prevOp == "")
-    {
-        // sumSoFar = ui->Display->text().toDouble();
-    }
-
     if (isAbs || isFact)
     {
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " =");
-        if (isAbs && number < 0)
-            number *= -1;
+        if (isAbs){
+            number = mathlib::abs(number);
+        } else {
+            number = mathlib::factorial(number);
+        }
     }
     else
     {
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " =");
     }
 
+    if(expectMulDiv){
+        if (prevOp == "*"){
+            factorSoFar = mathlib::mul(factorSoFar, number);
+        } else if (prevOp == "/"){
+            factorSoFar = mathlib::div(factorSoFar, number);
+        }
+        calc(factorSoFar, OpPrevMulDiv);
+        expectMulDiv = false;
+    }
+    else {
+        calc(number, prevOp);
+    }
+
+    if (prevOp.isEmpty())
+    {
+        sumSoFar = number;
+    }
+
     ui->Display->setText(QString::number(sumSoFar));
 
     // reset
     sumSoFar = 0.0;
+    factorSoFar = 0.0;
     prev = 0.0;
     OpPrevMulDiv = "";
     prevOp = "";
     waitingForOperand = true;
     isAbs = false;
+    isFact = false;
     finito = true;
 }
 
@@ -174,8 +223,8 @@ void Calculator::pointPress()
 {
     if (waitingForOperand)
         ui->Display->setText("0");
-    if (!ui->Display->text().contains('.'))
-        ui->Display->setText(ui->Display->text() + tr("."));
+    if (!ui->Display->text().contains("."))
+        ui->Display->setText(ui->Display->text() + ".");
     waitingForOperand = false;
 } // good
 
@@ -221,6 +270,7 @@ void Calculator::clearAll()
     ui->Display->setText("0");
     ui->Fulldisplay->clear();
     sumSoFar = 0.0;
+    factorSoFar = 0.0;
     prev = 0.0;
     waitingForOperand = true;
     isAbs = false;
@@ -228,3 +278,22 @@ void Calculator::clearAll()
     prevOp = "";
     OpPrevMulDiv = "";
 } // good
+
+bool Calculator::calc(double a, QString Op)
+{
+    if (Op == "+") {
+        sumSoFar = mathlib::add(sumSoFar, a);
+    }
+    else if (Op == "-") {
+        sumSoFar = mathlib::sub(sumSoFar, a);
+    }
+    else if (Op == "*") {
+        sumSoFar = mathlib::mul(sumSoFar, a);
+    }
+    else if (Op == "/") {
+        sumSoFar = mathlib::div(sumSoFar, a);
+    }
+
+
+    return true;
+}

@@ -9,14 +9,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>406</width>
-    <height>527</height>
+    <width>400</width>
+    <height>550</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>400</width>
+    <height>550</height>
+   </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>16777215</width>
-    <height>16777215</height>
+    <width>400</width>
+    <height>550</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -244,7 +250,7 @@ QPushButton:pressed{
 </string>
       </property>
       <property name="text">
-       <string>,</string>
+       <string>.</string>
       </property>
       <property name="shortcut">
        <string>.</string>
