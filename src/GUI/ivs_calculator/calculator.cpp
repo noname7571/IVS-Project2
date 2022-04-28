@@ -2,183 +2,373 @@
 #include "./ui_calculator.h"
 #include <QRegularExpression>
 
-//https://doc.qt.io/qt-5/qtwidgets-widgets-calculator-example.html
+#include "mathlib.h"
+
+// https://doc.qt.io/qt-5/qtwidgets-widgets-calculator-example.html
 
 bool finito = false;
-bool special = false;
+bool power = false;
+bool root = false;
 bool expectMulDiv = false;
 bool isAbs = false;
 bool isFact = false;
 bool waitingForOperand = true;
 double sumSoFar = 0.0;
-double prev = 0.0;
+double factorSoFar = 0.0;
+double spec = 0.0;
 QString prevOp = "";
 QString OpPrevMulDiv = "";
 //
 
-//constructor
+// constructor
 Calculator::Calculator(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::Calculator)
+    : QMainWindow(parent), ui(new Ui::Calculator)
 {
     ui->setupUi(this);
-    ui->Display->setReadOnly(true);//display as read-only
-    ui->Display->setText(QString::number(0));//def val == 0
-
-    QPushButton *numButtons[10];
-    for (int i = 0; i < 10; i++){
-        QString butName = "Button" + QString::number(i);
-        numButtons[i] = Calculator::findChild<QPushButton *>(butName);
-        connect(numButtons[i], SIGNAL(released()), this,
-                SLOT(numPress()));
-    }
-    connect(ui->Point, SIGNAL(released()), this,
-            SLOT(pointPress()));
-    connect(ui->Negation, SIGNAL(released()), this,
-            SLOT(signPress()));
-
-    connect(ui->Backspace, SIGNAL(released()), this,
-            SLOT(backspacePress()));
-    connect(ui->Clear, SIGNAL(released()), this,
-            SLOT(clear()));
-    connect(ui->ClearAll, SIGNAL(released()), this,
-            SLOT(clearAll()));
-
-    connect(ui->Multiply, SIGNAL(released()), this,
-            SLOT(mathOpPress()));
-    connect(ui->Divide, SIGNAL(released()), this,
-            SLOT(mathOpPress()));
-    connect(ui->Add, SIGNAL(released()), this,
-            SLOT(mathOpPress()));
-    connect(ui->Subtract, SIGNAL(released()), this,
-            SLOT(mathOpPress()));
-
-    connect(ui->Absolute, SIGNAL(released()), this,
-            SLOT(unaryPress()));
-    connect(ui->Factorial, SIGNAL(released()), this,
-            SLOT(unaryPress()));
-
-    connect(ui->Root, SIGNAL(released()), this,
-            SLOT(specialPress()));
-    connect(ui->Power, SIGNAL(released()), this,
-            SLOT(specialPress()));
-
-    connect(ui->Equals, SIGNAL(released()), this,
-            SLOT(equalPress()));
+    ui->Display->setReadOnly(true);           // display as read-only
+    ui->Display->setText(QString::number(0)); // def val == 0    
 }
 
-//destructor
+// destructor
 Calculator::~Calculator()
 {
     delete ui;
 }
 
-void Calculator::numPress(){
+void Calculator::numPress()
+{
     QPushButton *button = (QPushButton *)sender();
     int numVal = button->text().toInt();
 
     if (ui->Display->text() == "0" && numVal == 0)
         return;
-    if (isAbs || isFact){
+    if (isAbs || isFact)
+    {
         return;
     }
 
-    if (waitingForOperand) {
+    if (waitingForOperand)
+    {
         ui->Display->clear();
         waitingForOperand = false;
     }
-    if (finito){
+    if (finito)
+    {
         ui->Fulldisplay->clear();
         finito = false;
     }
     ui->Display->setText(ui->Display->text() + QString::number(numVal));
 }
 
-
-void Calculator::unaryPress(){
+void Calculator::unaryPress()
+{
     QPushButton *button = (QPushButton *)sender();
     QString op = button->text();
 
-    if (waitingForOperand || isAbs || isFact){
+    if (waitingForOperand || isAbs || isFact)
+    {
         return;
     }
 
-    if (op == "abs"){
+    if (op == "abs")
+    {
         isAbs = true;
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" abs("+ui->Display->text()+")");
-    } else {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " abs(" + ui->Display->text() + ")");
+    }
+    else
+    {
         isFact = true;
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" fact("+ui->Display->text()+")");
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " fact(" + ui->Display->text() + ")");
     }
 }
 
-void Calculator::specialPress(){
-    QPushButton *button = (QPushButton *)sender();
-    QString op = button->text();
-
-    if (waitingForOperand || isAbs || isFact){
-        return;
-    }
-
-    if (op == "power"){
-        special = true;
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" "+ui->Display->text()+" ^");
-    } else {
-        special = true;
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" "+ui->Display->text()+" ~");
-    }
-
-    waitingForOperand = true;
-}
-
-void Calculator::mathOpPress(){
+void Calculator::specialPress()
+{
     QPushButton *button = (QPushButton *)sender();
     QString op = button->text();
     double number = ui->Display->text().toDouble();
 
-    if (waitingForOperand) return;
+    if (waitingForOperand)
+    {
+        return;
+    }
 
-    if(isAbs || isFact){
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" "+op);
-        if (isAbs && number < 0) number *= -1;
+    if (op == "power"){
+        power = true;
+        op = "^";
     } else {
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" "+ui->Display->text()+" "+op);
-        if (prevOp == ""){
-            //sumSoFar = ui->Display->text().toDouble();
+        root = true;
+        op = "~";
+    }
+
+    if (isAbs || isFact){
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + op);
+        if (isAbs){
+            isAbs = false;
+            try {
+                 number = mathlib::abs(number);
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
+        } else{
+            isFact = false;
+            try {
+                 number = mathlib::factorial(number);
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid value");
+                finito = true;
+                return;
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
+        }
+    } else {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " " +op);
+    }
+
+    spec = number;
+    waitingForOperand = true;
+}
+
+void Calculator::mathOpPress()
+{
+    QPushButton *button = (QPushButton *)sender();
+    QString op = button->text();
+    double number = ui->Display->text().toDouble();
+    ui->Display->setMaxLength(18);
+
+    if (waitingForOperand)
+        return;
+
+    if (isAbs || isFact)
+    {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + op);
+        if (isAbs){
+            try {
+                 number = mathlib::abs(number);
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
+        } else {
+            try {
+                 number = mathlib::factorial(number);
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid value");
+                finito = true;
+                return;
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
         }
     }
+    else
+    {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " " + op);
+    }
+
+    if(power || root){
+        if(power){
+            try {
+                 number = mathlib::power(spec, number);
+                 power = false;
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid exponent");
+                finito = true;
+                return;
+            }
+        } else {
+            try {
+                number = mathlib::getRoot(spec, number);
+                root = false;
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid exponent");
+                finito = true;
+                return;
+            }
+        }
+    }
+
+    if ((op == "*" || op == "/") && (prevOp == "+" || prevOp == "-")){
+        factorSoFar = number;
+        OpPrevMulDiv = prevOp;
+        expectMulDiv = true;
+    } else {
+        if(expectMulDiv){
+            if (prevOp == "*"){
+                try {
+                    factorSoFar = mathlib::mul(factorSoFar, number);
+                } catch (std::out_of_range) {
+                    reset();
+                    ui->Display->setText("Overflow");
+                    finito = true;
+                    return;
+                }
+            } else if (prevOp == "/"){
+                try {
+                    factorSoFar = mathlib::div(factorSoFar, number);
+                } catch (std::out_of_range) {
+                    reset();
+                    ui->Display->setText("Overflow");
+                    finito = true;
+                    return;
+                } catch (std::invalid_argument) {
+                    reset();
+                    ui->Display->setText("Division by zero");
+                    finito = true;
+                    return;
+                }
+            }
+            if(op == "+" || op == "-"){
+                if (!calc(factorSoFar, OpPrevMulDiv)) return;
+                expectMulDiv = false;
+            }
+        }
+        else {
+            if (!calc(number, prevOp)) return;
+        }
+    }
+
+    if (prevOp.isEmpty())
+    {
+        sumSoFar = number;
+    }
+
     ui->Display->setText(QString::number(sumSoFar));
     prevOp = op;
-
     waitingForOperand = true;
     isAbs = false;
     isFact = false;
 }
 
-void Calculator::equalPress(){
+void Calculator::equalPress()
+{
     double number = ui->Display->text().toDouble();
-    if (waitingForOperand)return;
+    if (waitingForOperand)
+        return;
 
-    if (prevOp == ""){
-        //sumSoFar = ui->Display->text().toDouble();
+    if (isAbs || isFact)
+    {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " =");
+        if (isAbs){
+            try {
+                 number = mathlib::abs(number);
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
+        } else {
+            try {
+                 number = mathlib::factorial(number);
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid value");
+                finito = true;
+                return;
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
+        }
+    }
+    else
+    {
+        ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " =");
     }
 
-    if (isAbs || isFact){
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" =");
-        if (isAbs && number < 0) number *= -1;
-    } else{
-        ui->Fulldisplay->setText(ui->Fulldisplay->text()+" "+ui->Display->text()+" =");
+    if(power || root){
+        if(power){
+            try {
+                 number = mathlib::power(spec, number);
+                 power = false;
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid exponent");
+                finito = true;
+                return;
+            }
+        } else {
+            try {
+                number = mathlib::getRoot(spec, number);
+                root = false;
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid exponent");
+                finito = true;
+                return;
+            }
+        }
+    }
+
+    if(expectMulDiv){
+        if (prevOp == "*"){
+            try {
+                factorSoFar = mathlib::mul(factorSoFar, number);
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
+        } else if (prevOp == "/"){
+            try {
+                factorSoFar = mathlib::div(factorSoFar, number);
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Division by zero");
+                finito = true;
+                return;
+            }
+        }
+        if (!calc(factorSoFar, OpPrevMulDiv)) return;
+        expectMulDiv = false;
+    }
+    else {
+        if (!calc(number, prevOp)) return;
+    }
+
+    if (prevOp.isEmpty())
+    {
+        sumSoFar = number;
     }
 
     ui->Display->setText(QString::number(sumSoFar));
 
-    //reset
-    sumSoFar = 0.0;
-    prev = 0.0;
-    OpPrevMulDiv = "";
-    prevOp = "";
-    waitingForOperand = true;
-    isAbs = false;
+    reset();
     finito = true;
 }
 
@@ -186,23 +376,28 @@ void Calculator::pointPress()
 {
     if (waitingForOperand)
         ui->Display->setText("0");
-    if (!ui->Display->text().contains('.'))
-        ui->Display->setText(ui->Display->text() + tr("."));
+    if (!ui->Display->text().contains("."))
+        ui->Display->setText(ui->Display->text() + ".");
     waitingForOperand = false;
-}//good
+} // good
 
 void Calculator::signPress()
 {
     QString text = ui->Display->text();
     double value = text.toDouble();
 
-    if (value > 0.0) {
-        text.prepend(tr("-"));
-    } else if (value < 0.0) {
+    if (value > 0.0)
+    {
+        ui->Display->setMaxLength(19);
+        text.prepend("-");
+    }
+    else if (value < 0.0)
+    {
         text.remove(0, 1);
+        ui->Display->setMaxLength(18);
     }
     ui->Display->setText(text);
-}//good
+} // good
 
 void Calculator::backspacePress()
 {
@@ -211,28 +406,91 @@ void Calculator::backspacePress()
 
     QString text = ui->Display->text();
     text.chop(1);
-    if (text.isEmpty()) {
+    if (text.isEmpty())
+    {
         text = "0";
         waitingForOperand = true;
     }
     ui->Display->setText(text);
-}//good
+} // good
 
 void Calculator::clear()
 {
     ui->Display->setText("0");
+    ui->Display->setMaxLength(18);
     waitingForOperand = true;
-}//good
+} // good
 
 void Calculator::clearAll()
 {
     ui->Display->setText("0");
     ui->Fulldisplay->clear();
+    reset();
+} // good
+
+void Calculator::reset()
+{
     sumSoFar = 0.0;
-    prev = 0.0;
+    factorSoFar = 0.0;
     waitingForOperand = true;
+    expectMulDiv = false;
     isAbs = false;
     isFact = false;
+    power = false;
+    root = false;
     prevOp = "";
     OpPrevMulDiv = "";
-}//good
+    ui->Display->setMaxLength(18);
+}
+
+bool Calculator::calc(double a, QString Op)
+{
+    if (Op == "+") {
+        try {
+            sumSoFar = mathlib::add(sumSoFar, a);
+        } catch (std::out_of_range) {
+            reset();
+            ui->Display->setText("Overflow");
+            finito = true;
+            return false;
+        }
+    }
+    else if (Op == "-") {
+        try {
+            sumSoFar = mathlib::sub(sumSoFar, a);
+        } catch (std::out_of_range) {
+            reset();
+            ui->Display->setText("Overflow");
+            finito = true;
+            return false;
+        }
+    }
+    else if (Op == "*") {
+        try {
+            sumSoFar = mathlib::mul(sumSoFar, a);
+        } catch (std::out_of_range) {
+            reset();
+            ui->Display->setText("Overflow");
+            finito = true;
+            return false;
+        }
+    }
+    else if (Op == "/") {
+        try {
+            sumSoFar = mathlib::div(sumSoFar, a);
+        } catch (std::out_of_range) {
+            reset();
+            ui->Display->setText("Overflow");
+            finito = true;
+            return false;
+        } catch (std::invalid_argument) {
+            reset();
+            ui->Display->setText("Division by zero");
+            finito = true;
+            return false;
+        }
+    }
+
+
+    return true;
+}

@@ -9,9 +9,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>406</width>
-    <height>527</height>
+    <width>450</width>
+    <height>550</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>450</width>
+    <height>550</height>
+   </size>
   </property>
   <property name="maximumSize">
    <size>
@@ -72,6 +78,9 @@
         <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Clears everything.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
 	background-color: #c2eeeb;
@@ -87,6 +96,9 @@ QPushButton:pressed{
       </property>
       <property name="text">
        <string>CE</string>
+      </property>
+      <property name="shortcut">
+       <string>Del</string>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -129,6 +141,9 @@ QPushButton:pressed{
       <property name="text">
        <string>7</string>
       </property>
+      <property name="shortcut">
+       <string>7</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -152,6 +167,9 @@ QPushButton:pressed{
        <font>
         <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calculate absolute value.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -200,6 +218,9 @@ QPushButton:pressed{
       <property name="text">
        <string>4</string>
       </property>
+      <property name="shortcut">
+       <string>4</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -224,6 +245,9 @@ QPushButton:pressed{
         <pointsize>15</pointsize>
        </font>
       </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds decimal point.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
 	background-color: #efefef;
@@ -238,7 +262,10 @@ QPushButton:pressed{
 </string>
       </property>
       <property name="text">
-       <string>,</string>
+       <string>.</string>
+      </property>
+      <property name="shortcut">
+       <string>.</string>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -281,6 +308,9 @@ QPushButton:pressed{
       <property name="text">
        <string>0</string>
       </property>
+      <property name="shortcut">
+       <string>0</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -321,6 +351,9 @@ QPushButton:pressed{
       <property name="text">
        <string>+</string>
       </property>
+      <property name="shortcut">
+       <string>+</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -344,6 +377,9 @@ QPushButton:pressed{
        <font>
         <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calculate power.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -384,6 +420,9 @@ QPushButton:pressed{
        <font>
         <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calculate root.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -442,6 +481,9 @@ QPushButton:pressed{
       <property name="text">
        <string>6</string>
       </property>
+      <property name="shortcut">
+       <string>6</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -481,6 +523,9 @@ QPushButton:pressed{
 </string>
       </property>
       <property name="text">
+       <string>3</string>
+      </property>
+      <property name="shortcut">
        <string>3</string>
       </property>
       <property name="autoDefault">
@@ -523,6 +568,9 @@ QPushButton:pressed{
       <property name="text">
        <string>=</string>
       </property>
+      <property name="shortcut">
+       <string>Return</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -562,6 +610,9 @@ QPushButton:pressed{
 </string>
       </property>
       <property name="text">
+       <string>5</string>
+      </property>
+      <property name="shortcut">
        <string>5</string>
       </property>
       <property name="autoDefault">
@@ -604,6 +655,9 @@ QPushButton:pressed{
       <property name="text">
        <string>*</string>
       </property>
+      <property name="shortcut">
+       <string>*</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -627,6 +681,9 @@ QPushButton:pressed{
        <font>
         <pointsize>15</pointsize>
        </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Adds/Removes sign from number in main display.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -670,6 +727,9 @@ QPushButton:pressed{
        <font>
         <pointsize>11</pointsize>
        </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Calcualte factorial.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -728,6 +788,9 @@ QPushButton:pressed{
       <property name="text">
        <string>1</string>
       </property>
+      <property name="shortcut">
+       <string>1</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -751,6 +814,9 @@ QPushButton:pressed{
        <font>
         <pointsize>15</pointsize>
        </font>
+      </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Clears main display.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
@@ -792,6 +858,15 @@ QPushButton:pressed{
         <pointsize>11</pointsize>
        </font>
       </property>
+      <property name="toolTip">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Removes one character from main display.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+      <property name="toolTipDuration">
+       <number>-1</number>
+      </property>
+      <property name="whatsThis">
+       <string/>
+      </property>
       <property name="styleSheet">
        <string notr="true">QPushButton{
 	background-color: #c2eeeb;
@@ -813,6 +888,9 @@ QPushButton:pressed{
         <width>30</width>
         <height>30</height>
        </size>
+      </property>
+      <property name="shortcut">
+       <string>Backspace</string>
       </property>
       <property name="autoDefault">
        <bool>false</bool>
@@ -854,6 +932,9 @@ QPushButton:pressed{
       <property name="text">
        <string>/</string>
       </property>
+      <property name="shortcut">
+       <string>/</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -892,6 +973,9 @@ QPushButton:pressed{
 </string>
       </property>
       <property name="text">
+       <string>-</string>
+      </property>
+      <property name="shortcut">
        <string>-</string>
       </property>
       <property name="autoDefault">
@@ -935,6 +1019,9 @@ QPushButton:pressed{
       <property name="text">
        <string>2</string>
       </property>
+      <property name="shortcut">
+       <string>2</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -976,6 +1063,9 @@ QPushButton:pressed{
       <property name="text">
        <string>8</string>
       </property>
+      <property name="shortcut">
+       <string>8</string>
+      </property>
       <property name="autoDefault">
        <bool>false</bool>
       </property>
@@ -1015,6 +1105,9 @@ QPushButton:pressed{
 </string>
       </property>
       <property name="text">
+       <string>9</string>
+      </property>
+      <property name="shortcut">
        <string>9</string>
       </property>
       <property name="autoDefault">
@@ -1088,6 +1181,9 @@ border: none;
          <property name="alignment">
           <set>Qt::AlignBottom|Qt::AlignRight|Qt::AlignTrailing</set>
          </property>
+         <property name="dragEnabled">
+          <bool>true</bool>
+         </property>
          <property name="readOnly">
           <bool>true</bool>
          </property>
@@ -1119,7 +1215,7 @@ border: none;
          <property name="font">
           <font>
            <family>Calibri</family>
-           <pointsize>32</pointsize>
+           <pointsize>40</pointsize>
            <bold>true</bold>
           </font>
          </property>
@@ -1134,6 +1230,9 @@ border: none;
          </property>
          <property name="text">
           <string>0</string>
+         </property>
+         <property name="maxLength">
+          <number>18</number>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
@@ -1150,5 +1249,402 @@ border: none;
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>Button3</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>numPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>406</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button0</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>numPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button1</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>numPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>406</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button2</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>numPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>406</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button4</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>numPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>326</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button5</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>numPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>326</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button6</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>numPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>326</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button7</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>numPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button8</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>numPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Button9</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>numPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Equals</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>equalPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>324</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Divide</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>mathOpPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Multiply</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>mathOpPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Add</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>mathOpPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>406</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Subtract</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>mathOpPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>284</x>
+     <y>326</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Clear</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ClearAll</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>clearAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>121</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Factorial</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>unaryPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>245</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Absolute</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>unaryPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Power</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>specialPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>326</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Root</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>specialPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>365</x>
+     <y>406</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Backspace</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>backspacePress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Point</sender>
+   <signal>clicked()</signal>
+   <receiver>Calculator</receiver>
+   <slot>pointPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>202</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Negation</sender>
+   <signal>pressed()</signal>
+   <receiver>Calculator</receiver>
+   <slot>signPress()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>39</x>
+     <y>487</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>202</x>
+     <y>263</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>numPress()</slot>
+  <slot>equalPress()</slot>
+  <slot>signPress()</slot>
+  <slot>pointPress()</slot>
+  <slot>mathOpPress()</slot>
+  <slot>specialPress()</slot>
+  <slot>unaryPress()</slot>
+  <slot>clear()</slot>
+  <slot>clearAll()</slot>
+  <slot>backspacePress()</slot>
+ </slots>
 </ui>

@@ -28,6 +28,8 @@ private slots:
     void backspacePress();
     void clear();
     void clearAll();
+    void reset();
+    bool calc(double a, QString Op);
 
 private:
     Ui::Calculator *ui;
