@@ -9,9 +9,9 @@
 long double mathlib::add(long double a, long double b){
     long double result = a + b;
     if (result > MAX){
-        throw std::out_of_range("inf");
+        throw std::out_of_range("Inf");
     } else if (result < MIN){
-        throw std::out_of_range("-inf");
+        throw std::out_of_range("-Inf");
     } else {
         return result;
     }
@@ -20,9 +20,9 @@ long double mathlib::add(long double a, long double b){
 long double mathlib::sub(long double a, long double b){
     long double result = a - b;
     if (result > MAX){
-        throw std::out_of_range("inf");
+        throw std::out_of_range("Inf");
     } else if (result < MIN){
-        throw std::out_of_range("-inf");
+        throw std::out_of_range("-Inf");
     } else {
         return result;
     }
@@ -31,9 +31,9 @@ long double mathlib::sub(long double a, long double b){
 long double mathlib::mul(long double a, long double b){
     long double result = a * b;
     if (result > MAX){
-        throw std::out_of_range("inf");
+        throw std::out_of_range("Inf");
     } else if (result < MIN){
-        throw std::out_of_range("-inf");
+        throw std::out_of_range("-Inf");
     } else {
         return result;
     }
@@ -46,9 +46,9 @@ long double mathlib::div(long double dividend, long double divisor){
 
     long double result = dividend / divisor;
     if (result > MAX){
-        throw std::out_of_range("inf");
+        throw std::out_of_range("Inf");
     } else if (result < MIN){
-        throw std::out_of_range("-inf");
+        throw std::out_of_range("-Inf");
     } else {
         return result;
     }
@@ -65,9 +65,9 @@ long long mathlib::factorial(long long a){
 
     long double result = a * factorial(a - 1);
     if (result > MAX){
-        throw std::out_of_range("inf");
+        throw std::out_of_range("Inf");
     } else if (result < MIN){
-        throw std::out_of_range("-inf");
+        throw std::out_of_range("-Inf");
     } else {
         return result;
     }
@@ -84,11 +84,15 @@ long double mathlib::power(long double num, long long exponent){
         return 1;
     }
 
-    long double result = pow(num, exponent);
+    long double result = 1;
+    for (long long i = 1; i <= exponent; i++){
+        result = result * num;
+    }
+
     if (result > MAX){
-        throw std::out_of_range("inf");
+        throw std::out_of_range("Inf");
     } else if (result < MIN){
-        throw std::out_of_range("-inf");
+        throw std::out_of_range("-Inf");
     } else {
         return result;
     }
@@ -108,9 +112,9 @@ long double mathlib::getRoot(long double num, long long exponent){
 
         long double result = -pow(-num, 1 / (long double)exponent);
         if (result > MAX){
-            throw std::out_of_range("inf");
+            throw std::out_of_range("Inf");
         } else if (result < MIN){
-            throw std::out_of_range("-inf");
+            throw std::out_of_range("-Inf");
         } else {
             return result;
         }
@@ -118,9 +122,9 @@ long double mathlib::getRoot(long double num, long long exponent){
 
     long double result = pow(num, 1 / (long double)exponent);
     if (result > MAX){
-        throw std::out_of_range("inf");
+        throw std::out_of_range("Inf");
     } else if (result < MIN){
-        throw std::out_of_range("-inf");
+        throw std::out_of_range("-Inf");
     } else {
         return result;
     }
@@ -128,9 +132,9 @@ long double mathlib::getRoot(long double num, long long exponent){
 
 long double mathlib::abs(long double num){
     if (num > MAX){
-        throw std::out_of_range("inf");
+        throw std::out_of_range("Inf");
     } else if (num < MIN){
-        throw std::out_of_range("-inf");
+        throw std::out_of_range("-Inf");
     } else if (num < 0){
         return -num;
     } else {
