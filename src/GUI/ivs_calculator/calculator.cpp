@@ -105,10 +105,29 @@ void Calculator::specialPress()
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + op);
         if (isAbs){
             isAbs = false;
-            number = mathlib::abs(number);
+            try {
+                 number = mathlib::abs(number);
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
         } else{
             isFact = false;
-            number = mathlib::factorial(number);
+            try {
+                 number = mathlib::factorial(number);
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid value");
+                finito = true;
+                return;
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
         }
     } else {
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + ui->Display->text() + " " +op);
@@ -123,6 +142,7 @@ void Calculator::mathOpPress()
     QPushButton *button = (QPushButton *)sender();
     QString op = button->text();
     double number = ui->Display->text().toDouble();
+    ui->Display->setMaxLength(18);
 
     if (waitingForOperand)
         return;
@@ -131,9 +151,28 @@ void Calculator::mathOpPress()
     {
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " " + op);
         if (isAbs){
-            number = mathlib::abs(number);
+            try {
+                 number = mathlib::abs(number);
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
         } else {
-            number = mathlib::factorial(number);
+            try {
+                 number = mathlib::factorial(number);
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid value");
+                finito = true;
+                return;
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
         }
     }
     else
@@ -143,11 +182,30 @@ void Calculator::mathOpPress()
 
     if(power || root){
         if(power){
-            number = mathlib::power(spec, number);
-            power = false;
+            try {
+                 number = mathlib::power(spec, number);
+                 power = false;
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid exponent");
+                finito = true;
+                return;
+            }
         } else {
-            number = mathlib::getRoot(spec, number);
-            root = false;
+            try {
+                number = mathlib::getRoot(spec, number);
+                root = false;
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid exponent");
+                finito = true;
+                return;
+            }
         }
     }
 
@@ -158,17 +216,36 @@ void Calculator::mathOpPress()
     } else {
         if(expectMulDiv){
             if (prevOp == "*"){
-                factorSoFar = mathlib::mul(factorSoFar, number);
+                try {
+                    factorSoFar = mathlib::mul(factorSoFar, number);
+                } catch (std::out_of_range) {
+                    reset();
+                    ui->Display->setText("Overflow");
+                    finito = true;
+                    return;
+                }
             } else if (prevOp == "/"){
-                factorSoFar = mathlib::div(factorSoFar, number);
+                try {
+                    factorSoFar = mathlib::div(factorSoFar, number);
+                } catch (std::out_of_range) {
+                    reset();
+                    ui->Display->setText("Overflow");
+                    finito = true;
+                    return;
+                } catch (std::invalid_argument) {
+                    reset();
+                    ui->Display->setText("Division by zero");
+                    finito = true;
+                    return;
+                }
             }
             if(op == "+" || op == "-"){
-                calc(factorSoFar, OpPrevMulDiv);
+                if (!calc(factorSoFar, OpPrevMulDiv)) return;
                 expectMulDiv = false;
             }
         }
         else {
-            calc(number, prevOp);
+            if (!calc(number, prevOp)) return;
         }
     }
 
@@ -194,9 +271,28 @@ void Calculator::equalPress()
     {
         ui->Fulldisplay->setText(ui->Fulldisplay->text() + " =");
         if (isAbs){
-            number = mathlib::abs(number);
+            try {
+                 number = mathlib::abs(number);
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
         } else {
-            number = mathlib::factorial(number);
+            try {
+                 number = mathlib::factorial(number);
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid value");
+                finito = true;
+                return;
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
         }
     }
     else
@@ -206,25 +302,63 @@ void Calculator::equalPress()
 
     if(power || root){
         if(power){
-            number = mathlib::power(spec, number);
-            power = false;
+            try {
+                 number = mathlib::power(spec, number);
+                 power = false;
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid exponent");
+                finito = true;
+                return;
+            }
         } else {
-            number = mathlib::getRoot(spec, number);
-            root = false;
+            try {
+                number = mathlib::getRoot(spec, number);
+                root = false;
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Invalid exponent");
+                finito = true;
+                return;
+            }
         }
     }
 
     if(expectMulDiv){
         if (prevOp == "*"){
-            factorSoFar = mathlib::mul(factorSoFar, number);
+            try {
+                factorSoFar = mathlib::mul(factorSoFar, number);
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            }
         } else if (prevOp == "/"){
-            factorSoFar = mathlib::div(factorSoFar, number);
+            try {
+                factorSoFar = mathlib::div(factorSoFar, number);
+            } catch (std::out_of_range) {
+                reset();
+                ui->Display->setText("Overflow");
+                finito = true;
+                return;
+            } catch (std::invalid_argument) {
+                reset();
+                ui->Display->setText("Division by zero");
+                finito = true;
+                return;
+            }
         }
-        calc(factorSoFar, OpPrevMulDiv);
+        if (!calc(factorSoFar, OpPrevMulDiv)) return;
         expectMulDiv = false;
     }
     else {
-        calc(number, prevOp);
+        if (!calc(number, prevOp)) return;
     }
 
     if (prevOp.isEmpty())
@@ -234,17 +368,7 @@ void Calculator::equalPress()
 
     ui->Display->setText(QString::number(sumSoFar));
 
-    // reset
-    sumSoFar = 0.0;
-    factorSoFar = 0.0;
-    spec = 0;
-    OpPrevMulDiv = "";
-    prevOp = "";
-    waitingForOperand = true;
-    isAbs = false;
-    isFact = false;
-    power = false;
-    root = false;
+    reset();
     finito = true;
 }
 
@@ -264,11 +388,13 @@ void Calculator::signPress()
 
     if (value > 0.0)
     {
-        text.prepend(tr("-"));
+        ui->Display->setMaxLength(19);
+        text.prepend("-");
     }
     else if (value < 0.0)
     {
         text.remove(0, 1);
+        ui->Display->setMaxLength(18);
     }
     ui->Display->setText(text);
 } // good
@@ -291,6 +417,7 @@ void Calculator::backspacePress()
 void Calculator::clear()
 {
     ui->Display->setText("0");
+    ui->Display->setMaxLength(18);
     waitingForOperand = true;
 } // good
 
@@ -298,6 +425,11 @@ void Calculator::clearAll()
 {
     ui->Display->setText("0");
     ui->Fulldisplay->clear();
+    reset();
+} // good
+
+void Calculator::reset()
+{
     sumSoFar = 0.0;
     factorSoFar = 0.0;
     waitingForOperand = true;
@@ -308,21 +440,55 @@ void Calculator::clearAll()
     root = false;
     prevOp = "";
     OpPrevMulDiv = "";
-} // good
+    ui->Display->setMaxLength(18);
+}
 
 bool Calculator::calc(double a, QString Op)
 {
     if (Op == "+") {
-        sumSoFar = mathlib::add(sumSoFar, a);
+        try {
+            sumSoFar = mathlib::add(sumSoFar, a);
+        } catch (std::out_of_range) {
+            reset();
+            ui->Display->setText("Overflow");
+            finito = true;
+            return false;
+        }
     }
     else if (Op == "-") {
-        sumSoFar = mathlib::sub(sumSoFar, a);
+        try {
+            sumSoFar = mathlib::sub(sumSoFar, a);
+        } catch (std::out_of_range) {
+            reset();
+            ui->Display->setText("Overflow");
+            finito = true;
+            return false;
+        }
     }
     else if (Op == "*") {
-        sumSoFar = mathlib::mul(sumSoFar, a);
+        try {
+            sumSoFar = mathlib::mul(sumSoFar, a);
+        } catch (std::out_of_range) {
+            reset();
+            ui->Display->setText("Overflow");
+            finito = true;
+            return false;
+        }
     }
     else if (Op == "/") {
-        sumSoFar = mathlib::div(sumSoFar, a);
+        try {
+            sumSoFar = mathlib::div(sumSoFar, a);
+        } catch (std::out_of_range) {
+            reset();
+            ui->Display->setText("Overflow");
+            finito = true;
+            return false;
+        } catch (std::invalid_argument) {
+            reset();
+            ui->Display->setText("Division by zero");
+            finito = true;
+            return false;
+        }
     }
 
 

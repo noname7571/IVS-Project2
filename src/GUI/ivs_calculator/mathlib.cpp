@@ -1,41 +1,80 @@
 #include "mathlib.h"
 #include <math.h>
 #include <stdexcept>
-#include <limits.h>
+
+#define MAX 999999999999999999
+#define MIN -999999999999999999
 
 
 long double mathlib::add(long double a, long double b){
-    return a + b;
+    long double result = a + b;
+    if (result > MAX){
+        throw std::out_of_range("Inf");
+    } else if (result < MIN){
+        throw std::out_of_range("-Inf");
+    } else {
+        return result;
+    }
 }
 
 long double mathlib::sub(long double a, long double b){
-    return a - b;
+    long double result = a - b;
+    if (result > MAX){
+        throw std::out_of_range("Inf");
+    } else if (result < MIN){
+        throw std::out_of_range("-Inf");
+    } else {
+        return result;
+    }
 }
 
 long double mathlib::mul(long double a, long double b){
-    return a * b;
+    long double result = a * b;
+    if (result > MAX){
+        throw std::out_of_range("Inf");
+    } else if (result < MIN){
+        throw std::out_of_range("-Inf");
+    } else {
+        return result;
+    }
 }
 
 long double mathlib::div(long double dividend, long double divisor){
     if (divisor == 0){
         throw std::invalid_argument("Division by zero!");
     }
-    return dividend / divisor;
+
+    long double result = dividend / divisor;
+    if (result > MAX){
+        throw std::out_of_range("Inf");
+    } else if (result < MIN){
+        throw std::out_of_range("-Inf");
+    } else {
+        return result;
+    }
 }
 
 long long mathlib::factorial(long long a){
     if (a < 0){
         throw std::invalid_argument("Number less than zero!");
-    } else if (a != (int)a){
+    } else if (a != (long long)a){
         throw std::invalid_argument("Number is not an integer!");
     } else if (a == 1 || a == 0){
         return 1;
     }
-    return a * factorial(a - 1);
+
+    long double result = a * factorial(a - 1);
+    if (result > MAX){
+        throw std::out_of_range("Inf");
+    } else if (result < MIN){
+        throw std::out_of_range("-Inf");
+    } else {
+        return result;
+    }
 }
 
 long double mathlib::power(long double num, long long exponent){
-    if (exponent != (int)exponent){
+    if (exponent != (long long int)exponent){
         throw std::invalid_argument("Exponent is not an integer!");
     } else if (exponent < 0){
         throw std::invalid_argument("Exponent is less than zero!");
@@ -45,7 +84,18 @@ long double mathlib::power(long double num, long long exponent){
         return 1;
     }
 
-    return pow(num, exponent);
+    long double result = 1;
+    for (long long i = 1; i <= exponent; i++){
+        result = result * num;
+    }
+
+    if (result > MAX){
+        throw std::out_of_range("Inf");
+    } else if (result < MIN){
+        throw std::out_of_range("-Inf");
+    } else {
+        return result;
+    }
 }
 
 long double mathlib::getRoot(long double num, long long exponent){
@@ -60,14 +110,34 @@ long double mathlib::getRoot(long double num, long long exponent){
             throw std::invalid_argument("Exponent is even while number is less than zero!");
         }
 
-        return -pow(-num, 1 / (long double)exponent);
+        long double result = -pow(-num, 1 / (long double)exponent);
+        if (result > MAX){
+            throw std::out_of_range("Inf");
+        } else if (result < MIN){
+            throw std::out_of_range("-Inf");
+        } else {
+            return result;
+        }
     }
-    return pow(num, 1 / (long double)exponent);
+
+    long double result = pow(num, 1 / (long double)exponent);
+    if (result > MAX){
+        throw std::out_of_range("Inf");
+    } else if (result < MIN){
+        throw std::out_of_range("-Inf");
+    } else {
+        return result;
+    }
 }
 
 long double mathlib::abs(long double num){
-    if (num < 0){
-        return -1 * num;
+    if (num > MAX){
+        throw std::out_of_range("Inf");
+    } else if (num < MIN){
+        throw std::out_of_range("-Inf");
+    } else if (num < 0){
+        return -num;
+    } else {
+        return num;
     }
-    return num;
 }
