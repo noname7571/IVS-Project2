@@ -20,7 +20,6 @@ int main() {
 	sum = mathlib::sub(z,mathlib::mul(size, mathlib::power(x,2)));
 	sum = mathlib::getRoot(mathlib::mul(sum,y), 2);
 	cout << sum << endl;
-	cout << size << endl;
 	return 0;
 }
 
