@@ -1,3 +1,11 @@
+/**
+ * @file mathlib.h
+ * @author xblazo00 xtomko06
+ * @brief Header file for mathlib.cpp
+ * @version 0.1
+ * @date 2022-04-29
+ * 
+ */
 #pragma once
 
 namespace mathlib
