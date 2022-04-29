@@ -139,7 +139,7 @@ void Calculator::specialPress()
             isAbs = false;
             try {
                  number = mathlib::abs(number);
-            } catch (std::out_of_range) {
+            } catch (std::out_of_range const&) {
                 reset();
                 ui->Display->setText("Overflow");
                 finito = true;
@@ -149,12 +149,12 @@ void Calculator::specialPress()
             isFact = false;
             try {
                  number = mathlib::factorial(number);
-            } catch (std::invalid_argument) {
+            } catch (std::invalid_argument const&) {
                 reset();
                 ui->Display->setText("Invalid value");
                 finito = true;
                 return;
-            } catch (std::out_of_range) {
+            } catch (std::out_of_range const&) {
                 reset();
                 ui->Display->setText("Overflow");
                 finito = true;
@@ -189,7 +189,7 @@ void Calculator::mathOpPress()
         if (isAbs){
             try {
                  number = mathlib::abs(number);
-            } catch (std::out_of_range) {
+            } catch (std::out_of_range const&) {
                 reset();
                 ui->Display->setText("Overflow");
                 finito = true;
@@ -198,12 +198,12 @@ void Calculator::mathOpPress()
         } else {
             try {
                  number = mathlib::factorial(number);
-            } catch (std::invalid_argument) {
+            } catch (std::invalid_argument const&) {
                 reset();
                 ui->Display->setText("Invalid value");
                 finito = true;
                 return;
-            } catch (std::out_of_range) {
+            } catch (std::out_of_range const&) {
                 reset();
                 ui->Display->setText("Overflow");
                 finito = true;
@@ -221,12 +221,12 @@ void Calculator::mathOpPress()
             try {
                  number = mathlib::power(spec, number);
                  power = false;
-            } catch (std::out_of_range) {
+            } catch (std::out_of_range const&) {
                 reset();
                 ui->Display->setText("Overflow");
                 finito = true;
                 return;
-            } catch (std::invalid_argument) {
+            } catch (std::invalid_argument const&) {
                 reset();
                 ui->Display->setText("Invalid exponent");
                 finito = true;
@@ -236,7 +236,7 @@ void Calculator::mathOpPress()
             try {
                 number = mathlib::getRoot(spec, number);
                 root = false;
-            } catch (std::invalid_argument) {
+            } catch (std::invalid_argument const&) {
                 reset();
                 ui->Display->setText("Invalid exponent");
                 finito = true;
@@ -254,7 +254,7 @@ void Calculator::mathOpPress()
             if (prevOp == "*"){
                 try {
                     factorSoFar = mathlib::mul(factorSoFar, number);
-                } catch (std::out_of_range) {
+                } catch (std::out_of_range const&) {
                     reset();
                     ui->Display->setText("Overflow");
                     finito = true;
@@ -263,12 +263,12 @@ void Calculator::mathOpPress()
             } else if (prevOp == "/"){
                 try {
                     factorSoFar = mathlib::div(factorSoFar, number);
-                } catch (std::out_of_range) {
+                } catch (std::out_of_range const&) {
                     reset();
                     ui->Display->setText("Overflow");
                     finito = true;
                     return;
-                } catch (std::invalid_argument) {
+                } catch (std::invalid_argument const&) {
                     reset();
                     ui->Display->setText("Division by zero");
                     finito = true;
@@ -313,7 +313,7 @@ void Calculator::equalPress()
         if (isAbs){
             try {
                  number = mathlib::abs(number);
-            } catch (std::out_of_range) {
+            } catch (std::out_of_range const&) {
                 reset();
                 ui->Display->setText("Overflow");
                 finito = true;
@@ -322,12 +322,12 @@ void Calculator::equalPress()
         } else {
             try {
                  number = mathlib::factorial(number);
-            } catch (std::invalid_argument) {
+            } catch (std::invalid_argument const&) {
                 reset();
                 ui->Display->setText("Invalid value");
                 finito = true;
                 return;
-            } catch (std::out_of_range) {
+            } catch (std::out_of_range const&) {
                 reset();
                 ui->Display->setText("Overflow");
                 finito = true;
@@ -345,12 +345,12 @@ void Calculator::equalPress()
             try {
                  number = mathlib::power(spec, number);
                  power = false;
-            } catch (std::out_of_range) {
+            } catch (std::out_of_range const&) {
                 reset();
                 ui->Display->setText("Overflow");
                 finito = true;
                 return;
-            } catch (std::invalid_argument) {
+            } catch (std::invalid_argument const&) {
                 reset();
                 ui->Display->setText("Invalid exponent");
                 finito = true;
@@ -360,7 +360,7 @@ void Calculator::equalPress()
             try {
                 number = mathlib::getRoot(spec, number);
                 root = false;
-            } catch (std::invalid_argument) {
+            } catch (std::invalid_argument const&) {
                 reset();
                 ui->Display->setText("Invalid exponent");
                 finito = true;
@@ -373,7 +373,7 @@ void Calculator::equalPress()
         if (prevOp == "*"){
             try {
                 factorSoFar = mathlib::mul(factorSoFar, number);
-            } catch (std::out_of_range) {
+            } catch (std::out_of_range const&) {
                 reset();
                 ui->Display->setText("Overflow");
                 finito = true;
@@ -382,12 +382,12 @@ void Calculator::equalPress()
         } else if (prevOp == "/"){
             try {
                 factorSoFar = mathlib::div(factorSoFar, number);
-            } catch (std::out_of_range) {
+            } catch (std::out_of_range const&) {
                 reset();
                 ui->Display->setText("Overflow");
                 finito = true;
                 return;
-            } catch (std::invalid_argument) {
+            } catch (std::invalid_argument const&) {
                 reset();
                 ui->Display->setText("Division by zero");
                 finito = true;
@@ -517,7 +517,7 @@ bool Calculator::calc(double a, QString Op)
     if (Op == "+") {
         try {
             sumSoFar = mathlib::add(sumSoFar, a);
-        } catch (std::out_of_range) {
+        } catch (std::out_of_range const&) {
             reset();
             ui->Display->setText("Overflow");
             finito = true;
@@ -527,7 +527,7 @@ bool Calculator::calc(double a, QString Op)
     else if (Op == "-") {
         try {
             sumSoFar = mathlib::sub(sumSoFar, a);
-        } catch (std::out_of_range) {
+        } catch (std::out_of_range const&) {
             reset();
             ui->Display->setText("Overflow");
             finito = true;
@@ -537,7 +537,7 @@ bool Calculator::calc(double a, QString Op)
     else if (Op == "*") {
         try {
             sumSoFar = mathlib::mul(sumSoFar, a);
-        } catch (std::out_of_range) {
+        } catch (std::out_of_range const&) {
             reset();
             ui->Display->setText("Overflow");
             finito = true;
@@ -547,12 +547,12 @@ bool Calculator::calc(double a, QString Op)
     else if (Op == "/") {
         try {
             sumSoFar = mathlib::div(sumSoFar, a);
-        } catch (std::out_of_range) {
+        } catch (std::out_of_range const&) {
             reset();
             ui->Display->setText("Overflow");
             finito = true;
             return false;
-        } catch (std::invalid_argument) {
+        } catch (std::invalid_argument const&) {
             reset();
             ui->Display->setText("Division by zero");
             finito = true;

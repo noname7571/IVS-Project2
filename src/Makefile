@@ -2,18 +2,24 @@
 
 CXXFLAGS += -O0 -Wall -Werror -pedantic -pg -g --coverage
 
-all: calc profile 
+.PHONY: all install pack run doc test clean
+
+all: grindsetcalc profile 
+
+install: grindsetcalc
+	mkdir -p $(DESTDIR)/usr/bin
+	install $(INSFLAGS) $< $(DESTDIR)/usr/bin/
 
 pack:
 	make clean
 	cd ../ && zip xgrindset00.zip *
-run: calc
-	./ivs_calculator
+run: grindsetcalc
+	./$<
 
-calc: 
+grindsetcalc: 
 	cd GUI && cmake .
 	cd GUI && make
-	mv GUI/ivs_calculator .
+	mv GUI/ivs_calculator $@
 
 doc:
 	doxygen Doxyfile
@@ -31,6 +37,6 @@ mathlib.o: mathlib.cpp mathlib.h
 profiling.o: profiling.cpp mathlib.h
 
 clean:
-	rm -rf build profile *.o *.gcov *.gcno *.gcda gmon.out html ivs_calculator CMakeFiles
+	rm -rf build profile *.o *.gcov *.gcno *.gcda gmon.out html grindsetcalc CMakeFiles
 	cd GUI && rm -rf cmake_install.cmake CMakeFiles Makefile ivs_calculator CMakeCache.txt ivs_calculator_autogen
 	rm -f ../xgrindset00.zip
