@@ -1,10 +1,23 @@
+/**
+ * @file calculator.cpp
+ * @author xnespo10
+ * @brief GUI interface for the calculator.
+ * @version 0.1
+ * @date 2022-04-29
+ * 
+ */
 #include "calculator.h"
-#include "./ui_calculator.h"
+#include "ui_calculator.h"
 #include <QRegularExpression>
 
-#include "mathlib.h"
+#include "../mathlib.h"
 
 // https://doc.qt.io/qt-5/qtwidgets-widgets-calculator-example.html
+
+/**
+ * @brief Declaration of 
+ * 
+ */
 
 bool finito = false;
 bool power = false;
@@ -20,7 +33,11 @@ QString prevOp = "";
 QString OpPrevMulDiv = "";
 //
 
-// constructor
+/**
+ * @brief Construct a new Calculator:: Calculator object
+ * 
+ * @param parent Parent widget to attach to.
+ */
 Calculator::Calculator(QWidget *parent)
     : QMainWindow(parent), ui(new Ui::Calculator)
 {
@@ -29,12 +46,19 @@ Calculator::Calculator(QWidget *parent)
     ui->Display->setText(QString::number(0)); // def val == 0    
 }
 
-// destructor
+/**
+ * @brief Destroy the Calculator:: Calculator object
+ * 
+ */
 Calculator::~Calculator()
 {
     delete ui;
 }
 
+/**
+ * @brief Function to handle the number button press event.
+ * 
+ */
 void Calculator::numPress()
 {
     QPushButton *button = (QPushButton *)sender();
@@ -60,6 +84,10 @@ void Calculator::numPress()
     ui->Display->setText(ui->Display->text() + QString::number(numVal));
 }
 
+/**
+ * @brief Function to handle unary operator press event.
+ * 
+ */
 void Calculator::unaryPress()
 {
     QPushButton *button = (QPushButton *)sender();
@@ -82,6 +110,10 @@ void Calculator::unaryPress()
     }
 }
 
+/**
+ * @brief Function to handle power and root button press events.
+ * 
+ */
 void Calculator::specialPress()
 {
     QPushButton *button = (QPushButton *)sender();
@@ -137,6 +169,10 @@ void Calculator::specialPress()
     waitingForOperand = true;
 }
 
+/**
+ * @brief Function to handle the binary operator press event.
+ * 
+ */
 void Calculator::mathOpPress()
 {
     QPushButton *button = (QPushButton *)sender();
@@ -261,6 +297,10 @@ void Calculator::mathOpPress()
     isFact = false;
 }
 
+/**
+ * @brief Function to handle the equals button press event.
+ * 
+ */
 void Calculator::equalPress()
 {
     double number = ui->Display->text().toDouble();
@@ -372,6 +412,10 @@ void Calculator::equalPress()
     finito = true;
 }
 
+/**
+ * @brief Function to handle the point button press event.
+ * 
+ */
 void Calculator::pointPress()
 {
     if (waitingForOperand)
@@ -381,6 +425,10 @@ void Calculator::pointPress()
     waitingForOperand = false;
 } // good
 
+/**
+ * @brief Function to handle the sign button press event.
+ * 
+ */
 void Calculator::signPress()
 {
     QString text = ui->Display->text();
@@ -414,6 +462,10 @@ void Calculator::backspacePress()
     ui->Display->setText(text);
 } // good
 
+/**
+ * @brief Function to clear the input display.
+ * 
+ */
 void Calculator::clear()
 {
     ui->Display->setText("0");
@@ -421,6 +473,10 @@ void Calculator::clear()
     waitingForOperand = true;
 } // good
 
+/**
+ * @brief Function to clear the input and output display.
+ * 
+ */
 void Calculator::clearAll()
 {
     ui->Display->setText("0");
@@ -428,6 +484,11 @@ void Calculator::clearAll()
     reset();
 } // good
 
+
+/**
+ * @brief Function to clear the calculation parameters.
+ * 
+ */
 void Calculator::reset()
 {
     sumSoFar = 0.0;
@@ -443,6 +504,14 @@ void Calculator::reset()
     ui->Display->setMaxLength(18);
 }
 
+/**
+ * @brief Function to perform an operation based on the input parameters.
+ * 
+ * @param a Number to be operated on.
+ * @param Op The operation to be performed.
+ * @return true -> Successful operation.
+ * @return false -> Unsuccessful operation caused by an error.
+ */
 bool Calculator::calc(double a, QString Op)
 {
     if (Op == "+") {
