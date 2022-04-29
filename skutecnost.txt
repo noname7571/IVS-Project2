@@ -5,3 +5,8 @@ No, došlo toho 20.3 a nejak ešte math lib testy nemáme, nevadí, to sa nejak 
 
 Ten plan bol iba roleplay, my sme to tak nemysleli
 
+Nadišiel osudný deň, deň deadlinu. Zadali sme si meno grindset a aj si ho zasluzime. Vsetci sme zostali hore do 7. rana na klasicky syndrom 90% hotovo. Nakoniec to, co sme si mysleli, že bude úplne primitívne nás dostalo - Debian balíček. Incident nad incidenty, úplná katastrofa.
+
+Možno sme mali na každú, kritickú ku spusteniu, súčasť projektu mali priradiť dvoch ľudí namiesto jedného, aby to vždy nebolo tak, že ten kto to robí narazí na chybu, zvolá celý tým a on potom vysvetluje divné mená svojích premenných ostatným a čo ktorá funkcia má robiť a čo vlastne je problém. Toto by nevyriešilo síce debian package incident, ale ušetrilo by nám kopu nervov pri lúštení kódu niekoho iného.
+
+Ďalšie také dobré ponaučenie je, že keď developujeme pre linux, tak by sme to mali aspoň už prekladať a testovať na linuxe. Síce developovať pre windows na linuxe nieje tak nezvyčajné, je nezvyčajné developovať pre linux na windowse a kvôli tomu nebolo moc tém na fórach o rôznych problémov, na ktoré by človek pri takomto prístupe natrafil.
